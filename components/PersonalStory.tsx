@@ -2,7 +2,6 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
-import Topography from "@/components/Topography";
 
 interface EditorialCard {
   id: string;
@@ -185,13 +184,6 @@ export default function PersonalStory() {
     { clamp: true }
   );
 
-  // Background color transition: morphs to #F4F1E8 once the Personal Story section is fully visible
-  const sectionBg = useTransform(
-    smoothProgress,
-    [0.32, 0.50],
-    ["#0B0408", "#F4F1E8"]
-  );
-
   // Section text & metadata color interpolation
   const labelColor = useTransform(
     smoothProgress,
@@ -223,18 +215,12 @@ export default function PersonalStory() {
     ["rgba(225, 6, 0, 0.4)", "rgba(225, 6, 0, 0.5)"]
   );
 
-  // Background line pattern transitions:
-  // As background morphs from dark (#0B0408) to light (#F4F1E8) across [0.32, 0.50]:
-  // 1. Dark-mode moving WebGL Topography (white lines) smoothly fades out
-  const darkTopoOpacity = useTransform(smoothProgress, [0.32, 0.50], [1, 0]);
-  // 2. Light-mode moving WebGL Topography (dark charcoal / black lines) smoothly fades in
-  const lightTopoOpacity = useTransform(smoothProgress, [0.32, 0.50], [0, 1]);
-
   // Sentinel height: 205vh tightens the transition so Personal Story completes and flows smoothly into Track Off without excess blank space
   const SENTINEL_VH = 205;
 
   return (
     <div
+      id="personal-story-section"
       ref={sentinelRef}
       className="relative"
       style={{ height: `${SENTINEL_VH}vh` }}
@@ -242,70 +228,9 @@ export default function PersonalStory() {
     >
       {/* PINNED PANEL — stays locked at top:0 for the entire sentinel range */}
       <motion.section
-        style={{ backgroundColor: sectionBg }}
-        className="sticky top-0 w-full h-screen overflow-hidden select-none"
+        className="sticky top-0 w-full h-screen overflow-hidden select-none bg-transparent"
         aria-label="Editorial photo gallery"
       >
-        {/* WebGL Topography contour background (Dark Mode — White / Silver lines on #0B0408) */}
-        <motion.div 
-          style={{ opacity: darkTopoOpacity }}
-          className="absolute inset-0 z-0 pointer-events-none will-change-transform"
-        >
-          <Topography
-            lowColor="#ffffff"
-            midColor="#fffcfc"
-            highColor="#FFFFFF"
-            speed={0.35}
-            morphAmount={3.0}
-            morphSpeed={0.03}
-            bands={1}
-            thickness={0.006}
-            scale={2.05}
-            pixelSize={1.0}
-            glow={0.05}
-            colorMode="elevation"
-            contrast={3.0}
-            brightness={1.0}
-            fillBands={false}
-            opacity={0.08}
-            grain={true}
-            grainIntensity={0.05}
-            mouseInteraction={false}
-            mouseRadius={0.3}
-            mouseStrength={0.4}
-          />
-        </motion.div>
-
-        {/* WebGL Topography contour background (Light Mode — Dark Grey / Black lines on #F4F1E8) */}
-        <motion.div 
-          style={{ opacity: lightTopoOpacity }}
-          className="absolute inset-0 z-0 pointer-events-none will-change-transform"
-        >
-          <Topography
-            lowColor="#414141ff"
-            midColor="#262325"
-            highColor="#4a494aff"
-            speed={0.35}
-            morphAmount={3.0}
-            morphSpeed={0.03}
-            bands={1}
-            thickness={0.002}
-            scale={2.05}
-            pixelSize={1.0}
-            glow={0.02}
-            colorMode="elevation"
-            contrast={3.0}
-            brightness={1.0}
-            fillBands={false}
-            opacity={0.24}
-            grain={true}
-            grainIntensity={0.04}
-            mouseInteraction={false}
-            mouseRadius={0.3}
-            mouseStrength={0.4}
-          />
-        </motion.div>
-
         {/* ── Horizontal card track ── */}
         <motion.div
           style={{ x: xVw, width: `${TRACK_VW}vw` }}

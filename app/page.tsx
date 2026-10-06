@@ -11,7 +11,6 @@ import HelmetGallery from "@/components/HelmetGallery";
 import StoreCTA from "@/components/StoreCTA";
 import Partnerships from "@/components/Partnerships";
 import SocialSection from "@/components/SocialSection";
-import Topography from "@/components/Topography";
 import CharlesSignature from "@/components/CharlesSignature";
 import FadeThrough from "@/components/ui/fade-through";
 import Footer from "@/components/Footer";
@@ -172,44 +171,12 @@ export default function Page() {
         )}
       </AnimatePresence>
       <motion.div 
-        className="bg-[#0B0408] min-h-screen"
+        className="min-h-screen relative"
       >
         {/* Section 1 & 2: Hero Parallax Zoom-Out into Kinetic Marquee Container */}
-      <div ref={containerRef} className="relative bg-[#0B0408] min-h-[350vh]">
+      <div ref={containerRef} className="relative min-h-[350vh]">
         {/* Sticky viewport frame: Ensures full screen hero on page load */}
-        <div className="sticky top-0 h-screen w-screen overflow-hidden flex items-center justify-center isolate bg-[#0B0408]">
-          
-          {/* Background layer for Section 2 */}
-          <motion.div
-            style={{ opacity: darkBgOpacity }}
-            className="absolute inset-0 z-0 bg-[#0B0408] pointer-events-none overflow-hidden"
-          >
-            <div className="absolute inset-0">
-              <Topography
-                lowColor="#ffffff"
-                midColor="#fffcfc"
-                highColor="#FFFFFF"
-                speed={0.35}
-                morphAmount={3.0}
-                morphSpeed={0.03}
-                bands={1}
-                thickness={0.006}
-                scale={2.05}
-                pixelSize={1.0}
-                glow={0.05}
-                colorMode="elevation"
-                contrast={3.0}
-                brightness={1.0}
-                fillBands={false}
-                opacity={0.05}
-                grain={true}
-                grainIntensity={0.05}
-                mouseInteraction={false}
-                mouseRadius={0.3}
-                mouseStrength={0.4}
-              />
-            </div>
-          </motion.div>
+        <div className="sticky top-0 h-screen w-screen overflow-hidden flex items-center justify-center isolate">
 
           {/* Scrolling Velocity Marquee layer (Positioned BEHIND the image card - stays 100% visible) */}
           <motion.div

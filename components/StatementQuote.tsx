@@ -1,38 +1,11 @@
 "use client";
 
 import React from "react";
-import Topography from "@/components/Topography";
 import TextBlockAnimation from "@/components/ui/text-block-animation";
 
 export default function StatementQuote() {
   return (
-    <section className="relative min-h-screen w-full bg-[#0B0408] text-[#F4F1E8] flex flex-col justify-center items-center px-6 py-24 md:py-36 overflow-hidden isolate">
-      {/* WebGL Topography contour background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Topography
-          lowColor="#ffffff"
-          midColor="#fffcfc"
-          highColor="#FFFFFF"
-          speed={0.35}
-          morphAmount={3.0}
-          morphSpeed={0.03}
-          bands={1}
-          thickness={0.006}
-          scale={2.05}
-          pixelSize={1.0}
-          glow={0.05}
-          colorMode="elevation"
-          contrast={3.0}
-          brightness={1.0}
-          fillBands={false}
-          opacity={0.05}
-          grain={true}
-          grainIntensity={0.05}
-          mouseInteraction={false}
-          mouseRadius={0.3}
-          mouseStrength={0.4}
-        />
-      </div>
+    <section className="relative min-h-screen w-full bg-transparent text-[#F4F1E8] flex flex-col justify-center items-center px-6 py-24 md:py-36 overflow-hidden isolate">
 
       {/* Main Quote Container */}
       <div className="relative z-10 w-full max-w-[95vw] lg:max-w-screen-2xl mx-auto text-center flex flex-col justify-center items-center gap-2 md:gap-4 select-none">

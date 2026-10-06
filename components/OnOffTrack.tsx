@@ -2,7 +2,6 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
-import Topography from "@/components/Topography";
 
 export default function OnOffTrack() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,34 +36,8 @@ export default function OnOffTrack() {
     <section 
       ref={sectionRef}
       id="on-off-track"
-      className="relative w-full min-h-[85vh] sm:min-h-screen bg-[#F4F1E8] text-[#0D0D0D] overflow-hidden isolate select-none flex flex-col justify-center py-10 md:py-14"
+      className="relative w-full min-h-[85vh] sm:min-h-screen bg-transparent text-[#0D0D0D] overflow-hidden isolate select-none flex flex-col justify-center py-10 md:py-14"
     >
-      {/* Dynamic Animated WebGL Topography Background (Dark Grey / Black lines on #F4F1E8) */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <Topography
-          lowColor="#414141ff"
-          midColor="#262325"
-          highColor="#4a494aff"
-          speed={0.35}
-          morphAmount={3.0}
-          morphSpeed={0.03}
-          bands={1}
-          thickness={0.002}
-          scale={2.05}
-          pixelSize={1.0}
-          glow={0.02}
-          colorMode="elevation"
-          contrast={3.0}
-          brightness={1.0}
-          fillBands={false}
-          opacity={0.24}
-          grain={true}
-          grainIntensity={0.04}
-          mouseInteraction={false}
-          mouseRadius={0.3}
-          mouseStrength={0.4}
-        />
-      </div>
 
       {/* Left Image Cutout: CLR.png (Charles in Helmet facing Right) */}
       <motion.div 

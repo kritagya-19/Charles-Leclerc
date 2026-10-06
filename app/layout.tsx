@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
+import GlobalTopography from "@/components/GlobalTopography";
 
 export const metadata: Metadata = {
   title: "Charles Leclerc • Portfolio",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/images/CL2.png" />
       </head>
       <body className="font-sans antialiased">
+        <GlobalTopography />
         <Navbar />
         <SmoothScroll>{children}</SmoothScroll>
       </body>

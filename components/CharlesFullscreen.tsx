@@ -24,11 +24,11 @@ export default function CharlesFullscreen() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full -mt-[10vh] sm:-mt-[14vh]"
+      className="relative w-full"
       style={{ height: "200vh" }}
     >
       {/* Sticky viewport frame that locks OnOffTrack while Charles section slides up over it */}
-      <div className="sticky top-0 w-full h-screen overflow-hidden isolate bg-[#F4F1E8]">
+      <div className="sticky top-0 w-full h-screen overflow-hidden isolate bg-transparent">
         {/* Layer 1 (z-10): Track Off Section (Stays stationary behind) */}
         <div className="absolute inset-0 z-10 w-full h-full flex flex-col justify-center overflow-hidden">
           <OnOffTrack />

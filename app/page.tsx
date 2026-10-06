@@ -35,7 +35,7 @@ export default function Page() {
   const TOTAL_FRAMES = 89;
   const getFrameSrc = (index: number) => {
     const frameNum = String(index + 1).padStart(3, "0");
-    return `/img/auto/ezgif-frame-${frameNum}.png`;
+    return `/images/auto/ezgif-frame-${frameNum}.png`;
   };
 
   const renderFrame = (index: number) => {
